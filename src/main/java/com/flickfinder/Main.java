@@ -12,7 +12,7 @@ public class Main {
      * The port that the server should run on.
      */
     static int port = 8000;
-
+    //blip blop
     /**
      * Set up a Javalin server and the database.
      * 
