@@ -41,6 +41,11 @@ public class Person {
 		this.birth = birth;
 	}
 	
+	@Override
+	public String toString() {
+		return "Person [id=" + id + ", name=" + name + ", birth=" + birth + "]";
+	}
+	
 	// - Add your code here: use the MovieDAO.java as an example
 	// - Check the ERD and database schema in the docs folder
 	// (./docs/database_schema.md) to ensure each column in the People table

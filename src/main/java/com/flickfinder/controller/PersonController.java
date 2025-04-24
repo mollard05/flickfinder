@@ -3,6 +3,7 @@ package com.flickfinder.controller;
 import java.sql.SQLException;
 
 import com.flickfinder.dao.PersonDAO;
+import com.flickfinder.model.Person;
 
 import io.javalin.http.Context;
 
@@ -22,6 +23,24 @@ public class PersonController {
 	public void getAllPeople(Context ctx) {
 		try {
 			ctx.json(personDAO.getAllPeople());
+		} catch (SQLException e) {
+			ctx.status(500);
+			ctx.result("Database error");
+			e.printStackTrace();
+		}
+	}
+	
+	public void getPersonById(Context ctx) {
+
+		int id = Integer.parseInt(ctx.pathParam("id"));
+		try {
+			Person person = personDAO.getPersonById(id);
+			if (person == null) {
+				ctx.status(404);
+				ctx.result("Person not found");
+				return;
+			}
+			ctx.json(personDAO.getPersonById(id));
 		} catch (SQLException e) {
 			ctx.status(500);
 			ctx.result("Database error");
