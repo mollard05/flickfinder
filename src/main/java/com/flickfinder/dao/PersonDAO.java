@@ -8,7 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.flickfinder.model.Movie;
 import com.flickfinder.model.Person;
 import com.flickfinder.util.Database;
 
@@ -58,8 +57,6 @@ public class PersonDAO {
 
 			return new Person(rs.getInt("id"), rs.getString("name"), rs.getInt("birth"));
 		}
-		
-		// return null if the id does not return a movie.
 
 		return null;
 
