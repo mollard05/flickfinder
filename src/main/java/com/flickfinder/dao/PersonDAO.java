@@ -1,5 +1,15 @@
 package com.flickfinder.dao;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.flickfinder.model.Person;
+import com.flickfinder.util.Database;
+
 /**
  * TODO: Implement this class
  * 
@@ -12,5 +22,26 @@ public class PersonDAO {
 	// - getPersonById(int id)
 	// you will add further methods for the more advanced tasks; however, ensure your have completed 
 	// the must have requirements before you start these.  
+	
+	private final Connection connection;
+	
+	public PersonDAO() {
+		Database database = Database.getInstance();
+		connection = database.getConnection();
+	}
+	
+	public List<Person> getAllPeople() throws SQLException {
+		List<Person> people = new ArrayList<>();
 
+		Statement statement = connection.createStatement();
+		
+		// I've set the limit to 10 for development purposes - you should do the same.
+		ResultSet rs = statement.executeQuery("select * from people LIMIT 50");
+		
+		while (rs.next()) {
+			people.add(new Person(rs.getInt("id"), rs.getString("name"), rs.getInt("birth")));
+		}
+
+		return people;
+	}
 }
