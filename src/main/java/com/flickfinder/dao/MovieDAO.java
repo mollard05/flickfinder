@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.flickfinder.model.Movie;
+import com.flickfinder.model.Person;
 import com.flickfinder.util.Database;
 
 /**
@@ -79,6 +80,19 @@ public class MovieDAO {
 
 		return null;
 
+	}
+	
+	public List<Person> getPeopleByMovieId(int movie_id) throws SQLException {
+		List<Person> people = new ArrayList<>();
+
+		Statement statement = connection.createStatement();
+		ResultSet rs = statement.executeQuery("select * from people where id = (select id from stars where movie_id = ?) LIMIT 50");
+		
+		while (rs.next()) {
+			people.add(new Person(rs.getInt("id"), rs.getString("name"), rs.getInt("birth")));
+		}
+
+		return people;
 	}
 
 }

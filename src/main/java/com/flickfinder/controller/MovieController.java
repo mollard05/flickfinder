@@ -76,5 +76,23 @@ public class MovieController {
 			e.printStackTrace();
 		}
 	}
+	
+	public void getPeopleByMovieId(Context ctx) {
+
+		int id = Integer.parseInt(ctx.pathParam("id"));
+		try {
+			Movie movie = (Movie) movieDAO.getPeopleByMovieId(id);
+			if (movie == null) {
+				ctx.status(404);
+				ctx.result("Movie not found");
+				return;
+			}
+			ctx.json(movieDAO.getPeopleByMovieId(id));
+		} catch (SQLException e) {
+			ctx.status(500);
+			ctx.result("Database error");
+			e.printStackTrace();
+		}
+	}
 
 }
