@@ -1,9 +1,11 @@
 package com.flickfinder.controller;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import com.flickfinder.dao.MovieDAO;
 import com.flickfinder.model.Movie;
+import com.flickfinder.model.Person;
 
 import io.javalin.http.Context;
 
@@ -81,8 +83,8 @@ public class MovieController {
 
 		int id = Integer.parseInt(ctx.pathParam("id"));
 		try {
-			Movie movie = (Movie) movieDAO.getPeopleByMovieId(id);
-			if (movie == null) {
+			List<Person> people = movieDAO.getPeopleByMovieId(id);
+			if (people.isEmpty()) {
 				ctx.status(404);
 				ctx.result("Movie not found");
 				return;

@@ -83,16 +83,17 @@ public class MovieDAO {
 	}
 	
 	public List<Person> getPeopleByMovieId(int movie_id) throws SQLException {
-		List<Person> people = new ArrayList<>();
+		List<Person> stars = new ArrayList<>();
 
 		Statement statement = connection.createStatement();
-		ResultSet rs = statement.executeQuery("select * from people where id = (select id from stars where movie_id = ?) LIMIT 50");
-		
+		ResultSet rs = statement.executeQuery("select * from people inner join stars people.id = stars.person_id where stars.movie_id = ?");
+		//where id = (select person_id from stars where movie_id = ?)
+		int count = 0;
 		while (rs.next()) {
-			people.add(new Person(rs.getInt("id"), rs.getString("name"), rs.getInt("birth")));
+			stars.add(new Person(rs.getInt("id"), rs.getString("name"), rs.getInt("birth")));
 		}
 
-		return people;
+		return stars;
 	}
 
 }
