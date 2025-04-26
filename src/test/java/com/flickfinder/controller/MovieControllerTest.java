@@ -120,5 +120,16 @@ class MovieControllerTest {
 		movieController.getMovieById(ctx);
 		verify(ctx).status(404);
 	}
+	
+	@Test
+	public void testGetPeopleByMovieId() {
+		when(ctx.pathParam("id")).thenReturn("1");
+		movieController.getPeopleByMovieId(ctx);
+		try {
+			verify(movieDAO).getPeopleByMovieId(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 }

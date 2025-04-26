@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.AfterEach;
@@ -11,6 +12,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.flickfinder.model.Movie;
+import com.flickfinder.model.Person;
 import com.flickfinder.util.Database;
 import com.flickfinder.util.Seeder;
 
@@ -97,6 +99,23 @@ class MovieDAOTest {
 			e.printStackTrace();
 		}
 
+	}
+	
+	@Test
+	void testGetPeopleByMovieId() {
+		//i think sql list is somehow still empty?? keeps returning 0
+		//this should normally be set to add to person list
+		List<Person> peopleList = new ArrayList<Person>();
+		try {
+			int id = movieDAO.getPeopleByMovieId(138);
+			assertEquals(138,id);
+//			peopleList = movieDAO.getPeopleByMovieId(120338);
+//			assertEquals("Leonardo DiCaprio",peopleList.get(0).getName());
+//			assertEquals("Kate Winslet",peopleList.get(1).getName());
+		} catch (SQLException e) {
+			fail("SQLException thrown");
+			e.printStackTrace();
+		}
 	}
 
 	@AfterEach

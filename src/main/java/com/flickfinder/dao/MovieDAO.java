@@ -82,18 +82,27 @@ public class MovieDAO {
 
 	}
 	
-	public List<Person> getPeopleByMovieId(int movie_id) throws SQLException {
+	public int getPeopleByMovieId(int movieId) throws SQLException {
 		List<Person> stars = new ArrayList<>();
-
-		Statement statement = connection.createStatement();
-		ResultSet rs = statement.executeQuery("select * from people inner join stars people.id = stars.person_id where stars.movie_id = ?");
-		//where id = (select person_id from stars where movie_id = ?)
-		int count = 0;
-		while (rs.next()) {
-			stars.add(new Person(rs.getInt("id"), rs.getString("name"), rs.getInt("birth")));
+		//somethings wrong with the sql idk what
+		String statement = "SELECT person_id FROM stars WHERE movie_id = ?";
+		PreparedStatement ps = connection.prepareStatement(statement);
+		ps.setInt(1,movieId);
+		ResultSet rs = ps.executeQuery();
+		if (rs.next()) {
+			System.out.println("im here");
+			return rs.getInt("person_id");
 		}
-
-		return stars;
+		return 0;
+		//ResultSet rs = statement.executeQuery("select * from people inner join stars people.id = stars.person_id where stars.movie_id = ?");
+        //ResultSet rs = statement.executeQuery("SELECT * FROM people WHERE id is (SELECT person_id FROM stars WHERE movie_id = ?)");
+//		while (rs.next()) {
+//			stars.add(new Person(rs.getInt("id"), rs.getString("name"), rs.getInt("birth")));
+//		}
+//        for (int i = 0; i < stars.size(); i++) {
+//        	stars.add(new Person(rs.getInt("id"), rs.getString("name"), rs.getInt("birth")));
+//        }
+//		return stars;
 	}
 
 }
