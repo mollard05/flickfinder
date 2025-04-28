@@ -82,27 +82,18 @@ public class MovieDAO {
 
 	}
 	
-	public int getPeopleByMovieId(int movieId) throws SQLException {
+	public List<Person> getPeopleByMovieId(int movieId) throws SQLException {
 		List<Person> stars = new ArrayList<>();
-		//somethings wrong with the sql idk what
-		String statement = "SELECT person_id FROM stars WHERE movie_id = ?";
+		
+		String statement = "select * from people inner join stars on people.id = stars.person_id where stars.movie_id = ?";
 		PreparedStatement ps = connection.prepareStatement(statement);
 		ps.setInt(1,movieId);
 		ResultSet rs = ps.executeQuery();
-		if (rs.next()) {
-			System.out.println("im here");
-			return rs.getInt("person_id");
+		while (rs.next()) {
+			Person newPerson = new Person(rs.getInt("id"), rs.getString("name"), rs.getInt("birth"));
+			stars.add(newPerson);
 		}
-		return 0;
-		//ResultSet rs = statement.executeQuery("select * from people inner join stars people.id = stars.person_id where stars.movie_id = ?");
-        //ResultSet rs = statement.executeQuery("SELECT * FROM people WHERE id is (SELECT person_id FROM stars WHERE movie_id = ?)");
-//		while (rs.next()) {
-//			stars.add(new Person(rs.getInt("id"), rs.getString("name"), rs.getInt("birth")));
-//		}
-//        for (int i = 0; i < stars.size(); i++) {
-//        	stars.add(new Person(rs.getInt("id"), rs.getString("name"), rs.getInt("birth")));
-//        }
-//		return stars;
+		return stars;
 	}
 
 }

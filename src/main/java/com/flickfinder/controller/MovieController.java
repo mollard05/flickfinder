@@ -83,12 +83,12 @@ public class MovieController {
 
 		int id = Integer.parseInt(ctx.pathParam("id"));
 		try {
-			//List<Person> people = movieDAO.getPeopleByMovieId(id);
-//			if (people.isEmpty()) {
-//				ctx.status(404);
-//				ctx.result("Movie not found");
-//				return;
-//			}
+			List<Person> people = movieDAO.getPeopleByMovieId(id);
+			if (people.isEmpty()) {
+				ctx.status(404);
+				ctx.result("Movie not found");
+				return;
+			}
 			ctx.json(movieDAO.getPeopleByMovieId(id));
 		} catch (SQLException e) {
 			ctx.status(500);

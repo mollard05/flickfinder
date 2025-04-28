@@ -90,7 +90,6 @@ class MovieDAOTest {
 	@Test
 	void testGetMovieByIdInvalidId() {
 		// write an assertThrows for a SQLException
-
 		try {
 			Movie movie = movieDAO.getMovieById(1000);
 			assertEquals(null, movie);
@@ -101,17 +100,37 @@ class MovieDAOTest {
 
 	}
 	
+	/**
+	 * Tests getPeopleByMovieId method. Movie should be specified with an id.
+	 */
 	@Test
-	void testGetPeopleByMovieId() {
+	public void testGetPeopleByMovieId() {
 		//i think sql list is somehow still empty?? keeps returning 0
 		//this should normally be set to add to person list
 		List<Person> peopleList = new ArrayList<Person>();
 		try {
-			int id = movieDAO.getPeopleByMovieId(138);
-			assertEquals(138,id);
-//			peopleList = movieDAO.getPeopleByMovieId(120338);
-//			assertEquals("Leonardo DiCaprio",peopleList.get(0).getName());
-//			assertEquals("Kate Winslet",peopleList.get(1).getName());
+			peopleList = movieDAO.getPeopleByMovieId(1);
+			assertEquals("Tim Robbins",peopleList.get(0).getName());
+			assertEquals("Morgan Freeman",peopleList.get(1).getName());
+		} catch (SQLException e) {
+			fail("SQLException thrown");
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Tests getPeopleByMovieId method if invalid. Checks if passed through list is empty to determine if valid. 
+	 */
+	@Test
+	public void testGetPeopleByInvalidMovieId() {
+		List<Person> peopleList = new ArrayList<Person>();
+		boolean isValid = true;
+		try {
+			peopleList = movieDAO.getPeopleByMovieId(1000);
+			if (peopleList.isEmpty()) {
+				isValid = false;
+			}
+			assertEquals(isValid,false);
 		} catch (SQLException e) {
 			fail("SQLException thrown");
 			e.printStackTrace();
