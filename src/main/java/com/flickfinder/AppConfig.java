@@ -40,11 +40,6 @@ public class AppConfig {
 		PersonDAO personDao = new PersonDAO();
 		PersonController personController = new PersonController(personDao);
 
-		// Uncomment the following lines as you progress through the assessment.
-		// PersonController personController = new PersonController();
-		// PersonDAO personDao = new PersonDAO();
-		// PersonController personController = new PersonController(personDao);
-
 		/**
 		 * Below are the routes for the application.
 		 * You will need uncomment these as you progress through the assessment.

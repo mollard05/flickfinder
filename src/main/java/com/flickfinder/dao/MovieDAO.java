@@ -42,13 +42,13 @@ public class MovieDAO {
 	 * @throws SQLException if a database error occurs
 	 */
 
-	public List<Movie> getAllMovies() throws SQLException {
+	public List<Movie> getAllMovies(int limit) throws SQLException {
 		List<Movie> movies = new ArrayList<>();
-
-		Statement statement = connection.createStatement();
 		
-		// I've set the limit to 10 for development purposes - you should do the same.
-		ResultSet rs = statement.executeQuery("select * from movies LIMIT 50");
+		String statement = "select * from movies LIMIT ?";
+		PreparedStatement ps = connection.prepareStatement(statement);
+		ps.setInt(1, limit);
+		ResultSet rs = ps.executeQuery();
 		
 		while (rs.next()) {
 			movies.add(new Movie(rs.getInt("id"), rs.getString("title"), rs.getInt("year")));
@@ -83,7 +83,7 @@ public class MovieDAO {
 	}
 	
 	public List<Person> getPeopleByMovieId(int movieId) throws SQLException {
-		List<Person> stars = new ArrayList<>();
+		List<Person> stars = new ArrayList<Person>();
 		
 		String statement = "select * from people inner join stars on people.id = stars.person_id where stars.movie_id = ?";
 		PreparedStatement ps = connection.prepareStatement(statement);

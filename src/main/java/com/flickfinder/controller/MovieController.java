@@ -47,8 +47,12 @@ public class MovieController {
 	 * @param ctx the Javalin context
 	 */
 	public void getAllMovies(Context ctx) {
+		int limit = ctx.queryParam("limit") != null 
+				? Integer.parseInt(ctx.queryParam("limit"))
+				: 50;
+		// used web-site https://tech-docs.corndel.com/javalin/query-params for information
 		try {
-			ctx.json(movieDAO.getAllMovies());
+			ctx.json(movieDAO.getAllMovies(limit));
 		} catch (SQLException e) {
 			ctx.status(500);
 			ctx.result("Database error");

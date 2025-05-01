@@ -36,7 +36,7 @@ class PersonControllerTest {
 	public void testGetAllPeople() {
 		personController.getAllPeople(ctx);
 		try {
-			verify(personDAO).getAllPeople();
+			verify(personDAO).getAllPeople(50);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -48,7 +48,7 @@ class PersonControllerTest {
 	 */
 	@Test
 	void testGetAllDatabaseError() throws SQLException {
-		when(personDAO.getAllPeople()).thenThrow(new SQLException());
+		when(personDAO.getAllPeople(50)).thenThrow(new SQLException());
 		personController.getAllPeople(ctx);
 		verify(ctx).status(500);
 	}

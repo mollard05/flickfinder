@@ -60,8 +60,20 @@ class MovieDAOTest {
 	@Test
 	void testGetAllMovies() {
 		try {
-			List<Movie> movies = movieDAO.getAllMovies();
+			List<Movie> movies = movieDAO.getAllMovies(5);
+			//limit set to 5 as that is all there is in the seeder
 			assertEquals(5, movies.size());
+		} catch (SQLException e) {
+			fail("SQLException thrown");
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void testGetAllMoviesLimit() {
+		try {
+			List<Movie> movies = movieDAO.getAllMovies(3);
+			assertEquals(3,movies.size());
 		} catch (SQLException e) {
 			fail("SQLException thrown");
 			e.printStackTrace();

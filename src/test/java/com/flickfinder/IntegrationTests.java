@@ -3,6 +3,7 @@ package com.flickfinder;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasItems;
+import static org.hamcrest.Matchers.hasSize;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -109,6 +110,14 @@ class IntegrationTests {
 			body("id", hasItems(2,3))
 			.body("title", hasItems("The Godfather","The Godfather: Part II"))
 			.body("year", hasItems(1972,1974));
+	}
+	
+	@Test
+	public void retrieves_people_with_limit() {
+		given().when().get(baseURL + "/movies?limit=3").then().assertThat().statusCode(200).
+			body("id",hasSize(3))
+			.body("name", hasSize(3))
+			.body("year",hasSize(3));
 	}
 	
 	/**

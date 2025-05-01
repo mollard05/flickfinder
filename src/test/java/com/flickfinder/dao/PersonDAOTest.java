@@ -43,10 +43,21 @@ class PersonDAOTest {
 	public void testGetAllPeople() {
 		List<Person> people;
 		try {
-			people = personDAO.getAllPeople();
+			people = personDAO.getAllPeople(5);
 			assertEquals(5,people.size());
 		} catch (SQLException e) {
 			fail("SQL Exception");
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void testGetAllPeopleLimit() {
+		try {
+			List<Person> people = personDAO.getAllPeople(3);
+			assertEquals(3,people.size());
+		} catch (SQLException e) {
+			fail("SQLException thrown");
 			e.printStackTrace();
 		}
 	}
