@@ -105,8 +105,6 @@ class MovieDAOTest {
 	 */
 	@Test
 	public void testGetPeopleByMovieId() {
-		//i think sql list is somehow still empty?? keeps returning 0
-		//this should normally be set to add to person list
 		List<Person> peopleList = new ArrayList<Person>();
 		try {
 			peopleList = movieDAO.getPeopleByMovieId(1);
@@ -130,7 +128,7 @@ class MovieDAOTest {
 			if (peopleList.isEmpty()) {
 				isValid = false;
 			}
-			assertEquals(isValid,false);
+			assertEquals(false,isValid);
 		} catch (SQLException e) {
 			fail("SQLException thrown");
 			e.printStackTrace();

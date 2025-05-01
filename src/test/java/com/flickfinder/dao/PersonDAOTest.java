@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.AfterEach;
@@ -77,7 +78,41 @@ class PersonDAOTest {
 			fail("SQLException thrown");
 			e.printStackTrace();
 		}
-
+	}
+	
+	/**
+	 * Tests getMoviesStarringPerson method. Person should be specified with an id.
+	 */
+	@Test
+	public void testGetMoviesStarringPerson() {
+		List<Movie> movieList = new ArrayList<Movie>();
+		try {
+			movieList = personDAO.getMoviesStarringPerson(4);
+			assertEquals("The Godfather",movieList.get(0).getTitle());
+			assertEquals("The Godfather: Part II",movieList.get(1).getTitle());
+		} catch (SQLException e) {
+			fail("SQLException thrown");
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Tests getMoviesStarringPerson method if invalid. Checks if passed through list is empty to determine if valid. 
+	 */
+	@Test
+	public void testGetMoviesStarringPersonInvalidId() {
+		List<Movie> movieList = new ArrayList<Movie>();
+		boolean isValid = true;
+		try {
+			movieList = personDAO.getMoviesStarringPerson(1000);
+			if (movieList.isEmpty()) {
+				isValid = false;
+			}
+			assertEquals(false,isValid);
+		} catch (SQLException e) {
+			fail("SQLException thrown");
+			e.printStackTrace();
+		}
 	}
 	
 	@AfterEach

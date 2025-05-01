@@ -90,5 +90,16 @@ class PersonControllerTest {
 		personController.getPersonById(ctx);
 		verify(ctx).status(404);
 	}
+	
+	@Test
+	public void testGetMoviesStarringId() throws SQLException {
+		when(ctx.pathParam("id")).thenReturn("1");
+		personController.getMoviesStarringPerson(ctx);
+		try {
+			verify(personDAO).getMoviesStarringPerson(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 }

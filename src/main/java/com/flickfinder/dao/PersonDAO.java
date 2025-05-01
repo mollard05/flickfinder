@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.flickfinder.model.Movie;
 import com.flickfinder.model.Person;
 import com.flickfinder.util.Database;
 
@@ -60,5 +61,19 @@ public class PersonDAO {
 
 		return null;
 
+	}
+	
+	public List<Movie> getMoviesStarringPerson(int personId) throws SQLException {
+		List<Movie> movies = new ArrayList<Movie>();
+		
+		String statement = "select * from movies inner join stars on movies.id = stars.movie_id where stars.person_id = ?";
+		PreparedStatement ps = connection.prepareStatement(statement);
+		ps.setInt(1,personId);
+		ResultSet rs = ps.executeQuery();
+		while (rs.next()) {
+			Movie newMovie = new Movie(rs.getInt("id"), rs.getString("title"), rs.getInt("year"));
+			movies.add(newMovie);
+		}
+		return movies;
 	}
 }
