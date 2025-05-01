@@ -53,6 +53,14 @@ class PersonControllerTest {
 		verify(ctx).status(500);
 	}
 	
+// commented out validation for the limit in people (Might delete if unnecessary
+//	@Test
+//	public void testGetAllInvalidLimit() throws IllegalArgumentException {
+//		when(personDAO.getAllPeople(0)).thenThrow(new IllegalArgumentException());
+//		personController.getAllPeople(ctx);
+//		verify(ctx).status(400);
+//	}
+	
 	/**
 	 * Test method to check if parameter matches for getPersonById() method.
 	 */
