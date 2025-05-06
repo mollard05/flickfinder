@@ -114,7 +114,7 @@ public class MovieController {
 			List<MovieRating> movies = movieDAO.getRatingsByYear(year, limit, votes);
 			if (movies.isEmpty()) {
 				ctx.status(404);
-				ctx.result("Movie not found");
+				ctx.result("Year not found");
 				return;
 			}
 			ctx.json(movieDAO.getRatingsByYear(year,limit,votes));
