@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.flickfinder.dao.MovieDAO;
 import com.flickfinder.model.Movie;
+import com.flickfinder.model.MovieRating;
 import com.flickfinder.model.Person;
 
 import io.javalin.http.Context;
@@ -94,6 +95,29 @@ public class MovieController {
 				return;
 			}
 			ctx.json(movieDAO.getPeopleByMovieId(id));
+		} catch (SQLException e) {
+			ctx.status(500);
+			ctx.result("Database error");
+			e.printStackTrace();
+		}
+	}
+	
+	public void getRatingsByYear(Context ctx) {
+		int year = Integer.parseInt(ctx.pathParam("year"));
+		int limit = ctx.queryParam("limit") != null 
+				? Integer.parseInt(ctx.queryParam("limit"))
+				: 50;
+		int votes = ctx.queryParam("votes") != null
+				? Integer.parseInt(ctx.queryParam("votes"))
+				: 1000;
+		try {
+			List<MovieRating> movies = movieDAO.getRatingsByYear(year, limit, votes);
+			if (movies.isEmpty()) {
+				ctx.status(404);
+				ctx.result("Movie not found");
+				return;
+			}
+			ctx.json(movieDAO.getRatingsByYear(year,limit,votes));
 		} catch (SQLException e) {
 			ctx.status(500);
 			ctx.result("Database error");

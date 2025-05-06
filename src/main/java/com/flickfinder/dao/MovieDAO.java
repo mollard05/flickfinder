@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.flickfinder.model.Movie;
+import com.flickfinder.model.MovieRating;
 import com.flickfinder.model.Person;
 import com.flickfinder.util.Database;
 
@@ -94,6 +95,22 @@ public class MovieDAO {
 			stars.add(newPerson);
 		}
 		return stars;
+	}
+	
+	public List<MovieRating> getRatingsByYear(int year, int limit, int votes) throws SQLException {
+		List<MovieRating> movies = new ArrayList<>();
+		
+		String statement = "select movies.id, movies.title, ratings.rating, ratings.votes, movies.year from movies inner join ratings on movies.id = ratings.movie_id where movies.year = ? and ratings.votes > ? order by ratings.rating desc LIMIT ?";
+		PreparedStatement ps = connection.prepareStatement(statement);
+		ps.setInt(1, year);
+		ps.setInt(2,votes);
+		ps.setInt(3,limit);
+		ResultSet rs = ps.executeQuery();
+		while (rs.next()) {
+			MovieRating newMovieRating = new MovieRating(rs.getInt("id"), rs.getString("title"), rs.getFloat("rating"), rs.getInt("votes"), rs.getInt("year"));
+			movies.add(newMovieRating);
+		}
+		return movies;
 	}
 
 }

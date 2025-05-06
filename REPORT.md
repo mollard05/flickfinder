@@ -33,9 +33,9 @@ James, age 28, is a instagram content-creator from Hackney, London. Growing up, 
 
 Shannon is a hospice receptionist in Liverpool. Whilst she only works part time, she often slacks off from her work by prioritising her interests in hair and makeup and her obsession with the actor Leonardo DiCaprio. 
 
-She needs a useful software application that can allow her to list all movies by a specific actor so that she can go through the list and watch all of DiCaprio's movies. As Shannon finds technology a little difficult to use, her family recommended her to use FlickFinder as it has a simplistic graphic for her to understand and a "search movies by star" feature where she could find a long list of movies starring her idol, Leonardo DiCaprio (id 138).
+She needs a useful site that can allow her to list all movies by a specific actor so that she can go through the list and watch all of DiCaprio's movies. As Shannon finds technology a little difficult to use, her family recommended her to use FlickFinder as it has a simplistic graphic for her to understand and a "search movies by star" feature where she could find a long list of movies starring her idol, Leonardo DiCaprio (id 138).
 
-She uses these features, along with the view by ratings feature, to provide a list of top-rated Leonardo Dicaprio movies to work through in her free time. However, she would like a way to track her movies that she has watched already as well as a recommendation for her next movies to watch to futher improve her experience with the app.
+She uses these features, along with the view by ratings feature, to provide a list of top-rated Leonardo Dicaprio movies to work through in her free time. However, she would like a way to track her movies that she has watched already as well as a recommendation for her next movies to watch to further improve her experience with the site.
 
 ## 1.3 User Stories
 
