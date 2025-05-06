@@ -9,9 +9,9 @@
 
 # Assignment 1 - Report
 
-**Student Name: [Your Name]**
+**Student Name: Molly Sheppard**
 
-**Student ID: [Your ID]**
+**Student ID: 6865590**
 
 ## 1.1 Proto Personas
 

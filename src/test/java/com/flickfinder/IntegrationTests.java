@@ -113,11 +113,19 @@ class IntegrationTests {
 	}
 	
 	@Test
-	public void retrieves_people_with_limit() {
+	public void retrieves_movies_with_limit() {
 		given().when().get(baseURL + "/movies?limit=3").then().assertThat().statusCode(200).
 			body("id",hasSize(3))
-			.body("name", hasSize(3))
+			.body("title", hasSize(3))
 			.body("year",hasSize(3));
+	}
+	
+	@Test
+	public void retrieves_people_with_limit() {
+		given().when().get(baseURL + "/people?limit=2").then().assertThat().statusCode(200).
+		body("id", hasSize(2))
+		.body("name", hasSize(2))
+		.body("birth",hasSize(2));
 	}
 	
 	/**
