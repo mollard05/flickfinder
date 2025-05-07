@@ -5,6 +5,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -60,13 +61,6 @@ class MovieControllerTest {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	}
-	
-	@Test
-	public void testThrows400ExceptionWhenIllegalArgumentExceptionForGetAll() throws IllegalArgumentException {
-		when(ctx.queryParam("limit")).thenReturn("0");
-		movieController.getAllMovies(ctx);
-		verify(ctx).status(400);
 	}
 	
 	/**
@@ -128,6 +122,10 @@ class MovieControllerTest {
 		verify(ctx).status(404);
 	}
 	
+	/*
+	 * new test methods below
+	 */
+	
 	@Test
 	public void testGetPeopleByMovieId() {
 		when(ctx.pathParam("id")).thenReturn("1");
@@ -140,9 +138,34 @@ class MovieControllerTest {
 	}
 	
 	@Test
+	void testThrows500ExceptionWhenGetPeopleByMovieIdDatabaseError() throws SQLException {
+		when(ctx.pathParam("id")).thenReturn("1");
+		when(movieDAO.getPeopleByMovieId(1)).thenThrow(new SQLException());
+		movieController.getPeopleByMovieId(ctx);
+		verify(ctx).status(500);
+	}
+	
+	@Test
+	void testThrows404ExceptionWhenNoPersonFound() throws SQLException {
+		when(ctx.pathParam("id")).thenReturn("1");
+		when(movieDAO.getPeopleByMovieId(1)).thenReturn(new ArrayList<>());
+		movieController.getPeopleByMovieId(ctx);
+		verify(ctx).status(404);
+	}
+	
+	@Test
 	public void testGetRatingsByYear() {
 		when(ctx.pathParam("year")).thenReturn("1994");
-		
+		//add more here
+	}
+	
+	//add 500 and 404 erros por favor
+	
+	@Test
+	public void testThrows400ExceptionWhenIllegalArgumentExceptionForGetAll() throws IllegalArgumentException {
+		when(ctx.queryParam("limit")).thenReturn("0");
+		movieController.getAllMovies(ctx);
+		verify(ctx).status(400);
 	}
 	
 	@Test

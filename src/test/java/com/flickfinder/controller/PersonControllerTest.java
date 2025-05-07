@@ -13,6 +13,9 @@ import com.flickfinder.dao.PersonDAO;
 
 import io.javalin.http.Context;
 
+//fix where all the tests are
+//add 500 and 404 errors for getMoviesFromStarring
+
 /**
  * TODO: Implement this class
  */
@@ -42,13 +45,6 @@ class PersonControllerTest {
 		}
 	}
 	
-	@Test
-	public void testThrows400ExceptionWhenIllegalArgumentExceptionForGetAll() throws IllegalArgumentException {
-		when(ctx.queryParam("limit")).thenReturn("0");
-		personController.getAllPeople(ctx);
-		verify(ctx).status(400);
-	}
-	
 	/**
 	 * Test method to check if 500 is thrown when the database has an error with getAllPeople() method.
 	 * @throws SQLException
@@ -59,14 +55,6 @@ class PersonControllerTest {
 		personController.getAllPeople(ctx);
 		verify(ctx).status(500);
 	}
-	
-// commented out validation for the limit in people (Might delete if unnecessary
-//	@Test
-//	public void testGetAllInvalidLimit() throws IllegalArgumentException {
-//		when(personDAO.getAllPeople(0)).thenThrow(new IllegalArgumentException());
-//		personController.getAllPeople(ctx);
-//		verify(ctx).status(400);
-//	}
 	
 	/**
 	 * Test method to check if parameter matches for getPersonById() method.
@@ -115,6 +103,24 @@ class PersonControllerTest {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@Test
+	void testException404WhenNoPersonIdFound() throws SQLException {
+		//..
+	}
+	
+	@Test
+	void testGetMoviesStarringId500DatabaseError() throws SQLException {
+		//..
+		
+	}
+	
+	@Test
+	public void testThrows400ExceptionWhenIllegalArgumentExceptionForGetAll() throws IllegalArgumentException {
+		when(ctx.queryParam("limit")).thenReturn("0");
+		personController.getAllPeople(ctx);
+		verify(ctx).status(400);
 	}
 
 }
