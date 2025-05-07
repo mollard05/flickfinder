@@ -53,10 +53,18 @@ public class MovieController {
 				: 50;
 		// used web-site https://tech-docs.corndel.com/javalin/query-params for information
 		try {
-			ctx.json(movieDAO.getAllMovies(limit));
+			if (limit < 1) {
+				throw new IllegalArgumentException();
+			} else {
+				ctx.json(movieDAO.getAllMovies(limit));
+			}
 		} catch (SQLException e) {
 			ctx.status(500);
 			ctx.result("Database error");
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			ctx.status(400);
+			ctx.result("Invalid Argument error");
 			e.printStackTrace();
 		}
 	}
@@ -111,16 +119,24 @@ public class MovieController {
 				? Integer.parseInt(ctx.queryParam("votes"))
 				: 1000;
 		try {
-			List<MovieRating> movies = movieDAO.getRatingsByYear(year, limit, votes);
-			if (movies.isEmpty()) {
-				ctx.status(404);
-				ctx.result("Year not found");
-				return;
+			if (limit < 1 || votes < 1) {
+				throw new IllegalArgumentException();
+			} else {
+				List<MovieRating> movies = movieDAO.getRatingsByYear(year, limit, votes);
+				if (movies.isEmpty()) {
+					ctx.status(404);
+					ctx.result("Year not found");
+					return;
+				}
+				ctx.json(movieDAO.getRatingsByYear(year,limit,votes));
 			}
-			ctx.json(movieDAO.getRatingsByYear(year,limit,votes));
 		} catch (SQLException e) {
 			ctx.status(500);
 			ctx.result("Database error");
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			ctx.status(400);
+			ctx.result("Invalid Argument Error");
 			e.printStackTrace();
 		}
 	}

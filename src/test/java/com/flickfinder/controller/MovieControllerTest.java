@@ -61,7 +61,14 @@ class MovieControllerTest {
 			e.printStackTrace();
 		}
 	}
-
+	
+	@Test
+	public void testThrows400ExceptionWhenIllegalArgumentExceptionForGetAll() throws IllegalArgumentException {
+		when(ctx.queryParam("limit")).thenReturn("0");
+		movieController.getAllMovies(ctx);
+		verify(ctx).status(400);
+	}
+	
 	/**
 	 * Test that the controller returns a 500 status code when a database error
 	 * occurs
@@ -131,5 +138,37 @@ class MovieControllerTest {
 			e.printStackTrace();
 		}
 	}
-
+	
+	@Test
+	public void testGetRatingsByYear() {
+		when(ctx.pathParam("year")).thenReturn("1994");
+		
+	}
+	
+	@Test
+	public void testThrows400ExceptionWhenIllegalArgumentExceptionRatingByYear1() throws IllegalArgumentException {
+		when(ctx.pathParam("year")).thenReturn("1994");
+		when(ctx.queryParam("limit")).thenReturn("0");
+		when(ctx.queryParam("votes")).thenReturn("0");
+		movieController.getRatingsByYear(ctx);
+		verify(ctx).status(400);
+	}
+	
+	@Test
+	public void testThrows400ExceptionWhenIllegalArgumentExceptionRatingByYear2() throws IllegalArgumentException {
+		when(ctx.pathParam("year")).thenReturn("1994");
+		when(ctx.queryParam("limit")).thenReturn("0");
+		when(ctx.queryParam("votes")).thenReturn("10");
+		movieController.getRatingsByYear(ctx);
+		verify(ctx).status(400);
+	}
+	
+	@Test
+	public void testThrows400ExceptionWhenIllegalArgumentExceptionRatingByYear3() throws IllegalArgumentException {
+		when(ctx.pathParam("year")).thenReturn("1994");
+		when(ctx.queryParam("limit")).thenReturn("10");
+		when(ctx.queryParam("votes")).thenReturn("0");
+		movieController.getRatingsByYear(ctx);
+		verify(ctx).status(400);
+	}
 }

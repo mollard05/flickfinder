@@ -27,18 +27,19 @@ public class PersonController {
 				? Integer.parseInt(ctx.queryParam("limit"))
 				: 50;
 		// used web-site https://tech-docs.corndel.com/javalin/query-params for information
-		
-//		if (limit <= 0) {
-//			ctx.status(400);
-//			ctx.result("Invalid Limit Request");
-//			return;
-//		}
-		
 		try {
-			ctx.json(personDAO.getAllPeople(limit));
+			if (limit < 1) {
+				throw new IllegalArgumentException();
+			} else {
+				ctx.json(personDAO.getAllPeople(limit));
+			}
 		} catch (SQLException e) {
 			ctx.status(500);
 			ctx.result("Database error");
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			ctx.status(400);
+			ctx.result("Invalid Argument error");
 			e.printStackTrace();
 		}
 	}

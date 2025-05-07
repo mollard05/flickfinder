@@ -42,6 +42,13 @@ class PersonControllerTest {
 		}
 	}
 	
+	@Test
+	public void testThrows400ExceptionWhenIllegalArgumentExceptionForGetAll() throws IllegalArgumentException {
+		when(ctx.queryParam("limit")).thenReturn("0");
+		personController.getAllPeople(ctx);
+		verify(ctx).status(400);
+	}
+	
 	/**
 	 * Test method to check if 500 is thrown when the database has an error with getAllPeople() method.
 	 * @throws SQLException
