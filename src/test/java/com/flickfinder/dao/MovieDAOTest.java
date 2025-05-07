@@ -12,6 +12,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.flickfinder.model.Movie;
+import com.flickfinder.model.MovieRating;
 import com.flickfinder.model.Person;
 import com.flickfinder.util.Database;
 import com.flickfinder.util.Seeder;
@@ -141,6 +142,34 @@ class MovieDAOTest {
 				isValid = false;
 			}
 			assertEquals(false,isValid);
+		} catch (SQLException e) {
+			fail("SQLException thrown");
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void testGetRatingByYearInvalid() {
+		List<MovieRating> ratingList = new ArrayList<MovieRating>();
+		boolean isValid = true;
+		try {
+			ratingList = movieDAO.getRatingsByYear(2024, 10, 50);
+			if (ratingList.isEmpty()) {
+				isValid = false;
+			}
+			assertEquals(false,isValid);
+		} catch (SQLException e) {
+			fail("SQLException thrown");
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void testGetRatingByYear() {
+		List<MovieRating> ratingList = new ArrayList<MovieRating>();
+		try {
+			ratingList = movieDAO.getRatingsByYear(1994, 10, 50);
+			assertEquals("The Shawshank Redemption",ratingList.get(0).getTitle());
 		} catch (SQLException e) {
 			fail("SQLException thrown");
 			e.printStackTrace();
