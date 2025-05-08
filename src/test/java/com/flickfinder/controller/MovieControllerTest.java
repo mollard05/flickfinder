@@ -122,9 +122,9 @@ class MovieControllerTest {
 		verify(ctx).status(404);
 	}
 	
-	/*
+	/**
 	 * new test methods below
-	 */
+	 **/
 	
 	@Test
 	public void testGetPeopleByMovieId() {
@@ -156,10 +156,33 @@ class MovieControllerTest {
 	@Test
 	public void testGetRatingsByYear() {
 		when(ctx.pathParam("year")).thenReturn("1994");
-		//add more here
+		movieController.getRatingsByYear(ctx);
+		try {
+			verify(movieDAO).getRatingsByYear(1994, 50, 1000);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
-	//add 500 and 404 erros por favor
+	@Test
+	void testThrows500ExceptionWhenGetRatingsByYearDatabaseError() throws SQLException {
+		when(ctx.pathParam("year")).thenReturn("1994");
+		when(ctx.pathParam("limit")).thenReturn("50");
+		when(ctx.pathParam("votes")).thenReturn("1000");
+		when(movieDAO.getRatingsByYear(1994,50,1000)).thenThrow(new SQLException());
+		movieController.getRatingsByYear(ctx);
+		verify(ctx).status(500);
+	}
+	
+	@Test
+	void testThrows404ExceptionWhenNoYearFound() throws SQLException {
+		when(ctx.pathParam("year")).thenReturn("1994");
+		when(ctx.pathParam("limit")).thenReturn("50");
+		when(ctx.pathParam("votes")).thenReturn("1000");
+		when(movieDAO.getRatingsByYear(1939,50,1000)).thenReturn(new ArrayList<>());
+		movieController.getRatingsByYear(ctx);
+		verify(ctx).status(404);
+	}
 	
 	@Test
 	public void testThrows400ExceptionWhenIllegalArgumentExceptionForGetAll() throws IllegalArgumentException {

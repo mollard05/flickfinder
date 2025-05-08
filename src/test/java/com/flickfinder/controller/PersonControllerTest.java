@@ -5,6 +5,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -75,7 +76,7 @@ class PersonControllerTest {
 	 * @throws SQLException
 	 */
 	@Test
-	void testGetPersonByIdDatabaseError() throws SQLException {
+	void testGetPersonById500DatabaseError() throws SQLException {
 		when(ctx.pathParam("id")).thenReturn("1");
 		when(personDAO.getPersonById(1)).thenThrow(new SQLException());
 		personController.getPersonById(ctx);
@@ -87,7 +88,7 @@ class PersonControllerTest {
 	 * @throws SQLException
 	 */
 	@Test
-	void testExceptionWhenNoPersonFound() throws SQLException {
+	void test404ExceptionWhenNoPersonFound() throws SQLException {
 		when(ctx.pathParam("id")).thenReturn("1");
 		when(personDAO.getPersonById(1)).thenReturn(null);
 		personController.getPersonById(ctx);
@@ -106,14 +107,20 @@ class PersonControllerTest {
 	}
 	
 	@Test
-	void testException404WhenNoPersonIdFound() throws SQLException {
-		//..
+	void testGetMoviesStarringPerson500DatabaseError() throws SQLException {
+		when(ctx.pathParam("id")).thenReturn("1");
+		when(personDAO.getMoviesStarringPerson(1)).thenThrow(new SQLException());
+		personController.getMoviesStarringPerson(ctx);
+		verify(ctx).status(500);
+		
 	}
 	
 	@Test
-	void testGetMoviesStarringId500DatabaseError() throws SQLException {
-		//..
-		
+	void testException404WhenNoPersonIdFound() throws SQLException {
+		when(ctx.pathParam("id")).thenReturn("1");
+		when(personDAO.getMoviesStarringPerson(1)).thenReturn(new ArrayList<>());
+		personController.getMoviesStarringPerson(ctx);
+		verify(ctx).status(404);
 	}
 	
 	@Test
