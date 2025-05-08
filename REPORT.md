@@ -33,7 +33,7 @@ James, age 28, is a instagram content-creator from Hackney, London. Growing up, 
 
 Shannon is a hospice receptionist in Liverpool. Whilst she only works part time, she often slacks off from her work by prioritising her interests in hair and makeup and her obsession with the actor Leonardo DiCaprio. 
 
-She needs a useful site that can allow her to list all movies by a specific actor so that she can go through the list and watch all of DiCaprio's movies. As Shannon finds technology a little difficult to use, her family recommended her to use FlickFinder as it has a simplistic graphic for her to understand and a "search movies by star" feature where she could find a long list of movies starring her idol, Leonardo DiCaprio (id 138).
+She needs a useful site that can allow her to list all movies by a specific actor so that she can go through the list and watch all of DiCaprio's movies. As Shannon finds technology a little difficult to use, her family recommended her to use FlickFinder as it has a simplistic graphic for her to understand and a "search movies by star" feature where she could find a long list of movies starring Leonardo DiCaprio (id 138).
 
 She uses these features, along with the view by ratings feature, to provide a list of top-rated Leonardo Dicaprio movies to work through in her free time. However, she would like a way to track her movies that she has watched already as well as a recommendation for her next movies to watch to further improve her experience with the site.
 
@@ -41,39 +41,39 @@ She uses these features, along with the view by ratings feature, to provide a li
 
 ### User Story 1
 
-** [add user story title ]**
+** Film Critic reviewing popular movies**
 
-[add user story description ]
+As a film critic, I need to search for all movies on the IMDB database with a high rating to decide what to review. 
 
 ### User Story 2
 
-** [add user story title ]**
+** User wants to find details of a specific movie**
 
-[add user story description ]
+As a user, I want to find the year of release of a movie by its id so I can win a film trivia quiz.
 
 ### User Story 3
 
-** [add user story title ]**
+** Casting director finding actors **
 
-[add user story description ]
+As a casting director, I need to search for actors and actresses in a large database to find promising stars for my new movie.
 
 ### User Story 4
 
-** [add user story title ]**
+** Film Blogger wants to only find the top movies**
 
-[add user story description ]
+As a film blogger, I want to limit the database and find only the top 5 movies from each year for my new blog post.
 
 ### User Story 5
 
-** [add user story title ]**
+** Local Cinema wants to print out cast list**
 
-[add user story description ]
+As the owner of a local cinema business, I want to view a list of all the actors and actresses from a movie to create a custom brochure.
 
 ### User Story 6
 
-** [add user story title ]**
+** Fan account needs to compile a list of films for new fans**
 
-[add user story description ]
+As an owner of a social media fan account, I need to find a list of movies starring a specific actor so that I can share with new fans.
 
 ## 2 Critical Analysis and Reflection
 
