@@ -69,17 +69,6 @@ class MovieDAOTest {
 			e.printStackTrace();
 		}
 	}
-	
-	@Test
-	public void testGetAllMoviesLimit() {
-		try {
-			List<Movie> movies = movieDAO.getAllMovies(3);
-			assertEquals(3,movies.size());
-		} catch (SQLException e) {
-			fail("SQLException thrown");
-			e.printStackTrace();
-		}
-	}
 
 	/**
 	 * Tests the getMovieById method.
@@ -102,7 +91,6 @@ class MovieDAOTest {
 	 */
 	@Test
 	void testGetMovieByIdInvalidId() {
-		// write an assertThrows for a SQLException
 		try {
 			Movie movie = movieDAO.getMovieById(1000);
 			assertEquals(null, movie);
@@ -149,15 +137,10 @@ class MovieDAOTest {
 	}
 	
 	@Test
-	public void testGetRatingByYearInvalid() {
-		List<MovieRating> ratingList = new ArrayList<MovieRating>();
-		boolean isValid = true;
+	public void testGetAllMoviesLimit() {
 		try {
-			ratingList = movieDAO.getRatingsByYear(2024, 10, 50);
-			if (ratingList.isEmpty()) {
-				isValid = false;
-			}
-			assertEquals(false,isValid);
+			List<Movie> movies = movieDAO.getAllMovies(3);
+			assertEquals(3,movies.size());
 		} catch (SQLException e) {
 			fail("SQLException thrown");
 			e.printStackTrace();
@@ -175,7 +158,23 @@ class MovieDAOTest {
 			e.printStackTrace();
 		}
 	}
-
+	
+	@Test
+	public void testGetRatingByYearInvalid() {
+		List<MovieRating> ratingList = new ArrayList<MovieRating>();
+		boolean isValid = true;
+		try {
+			ratingList = movieDAO.getRatingsByYear(2024, 10, 50);
+			if (ratingList.isEmpty()) {
+				isValid = false;
+			}
+			assertEquals(false,isValid);
+		} catch (SQLException e) {
+			fail("SQLException thrown");
+			e.printStackTrace();
+		}
+	}
+	
 	@AfterEach
 	void tearDown() {
 		seeder.closeConnection();

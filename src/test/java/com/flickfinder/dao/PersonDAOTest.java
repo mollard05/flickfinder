@@ -51,17 +51,6 @@ class PersonDAOTest {
 		}
 	}
 	
-	@Test
-	public void testGetAllPeopleLimit() {
-		try {
-			List<Person> people = personDAO.getAllPeople(3);
-			assertEquals(3,people.size());
-		} catch (SQLException e) {
-			fail("SQLException thrown");
-			e.printStackTrace();
-		}
-	}
-	
 	/**
 	 * Test for getPersonById() method by checking if name matches.
 	 */
@@ -120,6 +109,17 @@ class PersonDAOTest {
 				isValid = false;
 			}
 			assertEquals(false,isValid);
+		} catch (SQLException e) {
+			fail("SQLException thrown");
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void testGetAllPeopleLimit() {
+		try {
+			List<Person> people = personDAO.getAllPeople(3);
+			assertEquals(3,people.size());
 		} catch (SQLException e) {
 			fail("SQLException thrown");
 			e.printStackTrace();

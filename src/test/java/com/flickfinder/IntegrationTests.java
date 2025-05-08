@@ -4,6 +4,8 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasItems;
 import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.Matchers.contains;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -126,6 +128,17 @@ class IntegrationTests {
 		body("id", hasSize(2))
 		.body("name", hasSize(2))
 		.body("birth",hasSize(2));
+	}
+	
+	//need to do this molly
+	@Test
+	public void retrieves_ratings_from_year() {
+		given().when().get(baseURL + "/movies/ratings/1994").then().assertThat().statusCode(200).
+			body("id", contains(1))
+			.body("title", contains("The Shawshank Redemption"))
+			.body("year", contains(1994))
+			.body("rating", contains(9.3))
+			.body("votes", contains(greaterThan(10000)));
 	}
 	
 	/**
