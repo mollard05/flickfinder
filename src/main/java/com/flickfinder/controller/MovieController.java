@@ -10,29 +10,11 @@ import com.flickfinder.model.Person;
 
 import io.javalin.http.Context;
 
-/**
- * The controller for the movie endpoints.
- * 
- * The controller acts as an intermediary between the HTTP routes and the DAO.
- * 
- * As you can see each method in the controller class is responsible for
- * handling a specific HTTP request.
- * 
- * Methods a Javalin Context object as a parameter and uses it to send a
- * response back to the client.
- * We also handle business logic in the controller, such as validating input and
- * handling errors.
- *
- * Notice that the methods don't return anything. Instead, they use the Javalin
- * Context object to send a response back to the client.
- */
-
 public class MovieController {
 
 	/**
 	 * The movie data access object.
 	 */
-
 	private final MovieDAO movieDAO;
 
 	/**
@@ -92,6 +74,11 @@ public class MovieController {
 		}
 	}
 	
+	/**
+	 * Returns the people with the specified movie id.
+	 * 
+	 * @param ctx the Javalin context
+	 */
 	public void getPeopleByMovieId(Context ctx) {
 
 		int id = Integer.parseInt(ctx.pathParam("id"));
@@ -110,6 +97,11 @@ public class MovieController {
 		}
 	}
 	
+	/**
+	 * Returns the Ratings of movies based on a specified year.
+	 * 
+	 * @param ctx the Javalin context
+	 */
 	public void getRatingsByYear(Context ctx) {
 		int year = Integer.parseInt(ctx.pathParam("year"));
 		int limit = ctx.queryParam("limit") != null 

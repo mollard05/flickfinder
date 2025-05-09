@@ -11,17 +11,17 @@ import io.javalin.http.Context;
 
 public class PersonController {
 
-	// to complete the must-have requirements you need to add the following methods:
-	// getAllPeople
-	// getPersonById
-	// you will add further methods for the more advanced tasks; however, ensure your have completed 
-	// the must have requirements before you start these.  
 	private final PersonDAO personDAO;
 	
 	public PersonController(PersonDAO personDAO) {
 		this.personDAO = personDAO;
 	}
 	
+	/**
+	 * Returns a list of all people in database.
+	 * 
+	 * @param ctx the Javalin context
+	 */
 	public void getAllPeople(Context ctx) {
 		int limit = ctx.queryParam("limit") != null
 				? Integer.parseInt(ctx.queryParam("limit"))
@@ -44,6 +44,11 @@ public class PersonController {
 		}
 	}
 	
+	/**
+	 * Return person with specific Id.
+	 * 
+	 * @param ctx the Javalin context
+	 */
 	public void getPersonById(Context ctx) {
 
 		int id = Integer.parseInt(ctx.pathParam("id"));
@@ -62,6 +67,11 @@ public class PersonController {
 		}
 	}
 	
+	/**
+	 * Return list of movies starring a specified person id.
+	 * 
+	 * @param ctx the Javalin context
+	 */
 	public void getMoviesStarringPerson(Context ctx) {
 
 		int id = Integer.parseInt(ctx.pathParam("id"));

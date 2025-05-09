@@ -83,6 +83,13 @@ public class MovieDAO {
 
 	}
 	
+	/**
+	 * Returns list of People from specified movie id.
+	 * 
+	 * @param movieId id of the movie
+	 * @return list of people based on movie id
+	 * @throws SQLException if database error occurs
+	 */
 	public List<Person> getPeopleByMovieId(int movieId) throws SQLException {
 		List<Person> stars = new ArrayList<Person>();
 		
@@ -97,6 +104,15 @@ public class MovieDAO {
 		return stars;
 	}
 	
+	/**
+	 * Returns list of movie rating objects from specified year.
+	 * 
+	 * @param year year of release of the movie
+	 * @param limit limit of how many to show
+	 * @param votes how many votes movies listed should be higher than
+	 * @return list of movie ratings based on year
+	 * @throws SQLException if database error occurs
+	 */
 	public List<MovieRating> getRatingsByYear(int year, int limit, int votes) throws SQLException {
 		List<MovieRating> movies = new ArrayList<>();
 		

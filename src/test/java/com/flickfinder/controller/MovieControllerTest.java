@@ -184,6 +184,10 @@ class MovieControllerTest {
 		verify(ctx).status(404);
 	}
 	
+	/**
+	 * Tests getAll for if limit is out of valid bounds
+	 * @throws IllegalArgumentException if limit is less than 1
+	 */
 	@Test
 	public void testThrows400ExceptionWhenIllegalArgumentExceptionForGetAll() throws IllegalArgumentException {
 		when(ctx.queryParam("limit")).thenReturn("0");

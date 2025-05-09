@@ -1,5 +1,6 @@
 package com.flickfinder.model;
 
+
 public class MovieRating extends Movie{
 	private int id;
 	private String title;

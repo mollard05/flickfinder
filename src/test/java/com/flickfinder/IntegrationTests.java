@@ -5,7 +5,7 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasItems;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.greaterThan;
-import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.hasItem;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,7 +18,6 @@ import io.javalin.Javalin;
 
 /**
  * These are our integration tests.
- * We are testing the application as a whole, including the database.
  */
 class IntegrationTests {
 
@@ -53,12 +52,6 @@ class IntegrationTests {
 		Database.getInstance(seeder.getConnection());
 		app = AppConfig.startServer(port);
 	}
-
-	/**
-	 * Test that the application retrieves a list of all movies.
-	 * Notice how we are checking the actual content of the list.
-	 * At this higher level, we are not concerned with the implementation details.
-	 */
 
 	@Test
 	void retrieves_a_list_of_all_movies() {
@@ -107,7 +100,7 @@ class IntegrationTests {
 	}
 	
 	@Test
-	public void retrieves_movies_from_star() {
+	public void retrieves_movies_starring_people() {
 		given().when().get(baseURL + "/people/4/movies").then().assertThat().statusCode(200).
 			body("id", hasItems(2,3))
 			.body("title", hasItems("The Godfather","The Godfather: Part II"))
@@ -130,15 +123,35 @@ class IntegrationTests {
 		.body("birth",hasSize(2));
 	}
 	
-	//need to do this molly
 	@Test
 	public void retrieves_ratings_from_year() {
 		given().when().get(baseURL + "/movies/ratings/1994").then().assertThat().statusCode(200).
-			body("id", contains(1))
-			.body("title", contains("The Shawshank Redemption"))
-			.body("year", contains(1994))
-			.body("rating", contains(9.3))
-			.body("votes", contains(greaterThan(10000)));
+			body("id", hasItems(1,6))
+			.body("title", hasItems("The Shawshank Redemption","Forrest Gump"))
+			.body("year", hasItems(1994,1994))
+			.body("rating", hasItems(9.3f, 8.8f)) //f makes it into a float literal
+			.body("votes", hasItems(greaterThan(10000),greaterThan(10000)));
+		//used web-site https://hamcrest.org/JavaHamcrest/javadoc/3.0/org/hamcrest/Matchers.html for greaterThan matcher
+	}
+	
+	@Test
+	public void retrieves_ratings_from_year_limit() {
+		given().when().get(baseURL + "/movies/ratings/1994?limit=1").then().assertThat().statusCode(200).
+			body("id", hasSize(1))
+			.body("title", hasSize(1))
+			.body("year", hasSize(1))
+			.body("rating", hasSize(1))
+			.body("votes", hasSize(1));
+	}
+	
+	@Test
+	public void retrieves_ratings_from_year_votes() {
+		given().when().get(baseURL + "/movies/ratings/1994?votes=2300000").then().assertThat().statusCode(200).
+			body("id", hasItem(6))
+			.body("title", hasItem("Forrest Gump"))
+			.body("year", hasItem(1994))
+			.body("rating", hasItem(8.8f))
+			.body("votes", hasItem(greaterThan(2300000)));
 	}
 	
 	/**

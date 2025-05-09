@@ -19,7 +19,6 @@ import com.flickfinder.util.Seeder;
 
 /**
  * Test for the Movie Data Access Object.
- * This uses an in-memory database for testing purposes.
  */
 
 class MovieDAOTest {
@@ -136,6 +135,10 @@ class MovieDAOTest {
 		}
 	}
 	
+	/**
+	 * Tests testGetAllMovies method if limit is working correctly.
+	 * Checks if list size matches size in parameter.
+	 */
 	@Test
 	public void testGetAllMoviesLimit() {
 		try {
@@ -147,20 +150,29 @@ class MovieDAOTest {
 		}
 	}
 	
+	/**
+	 * Tests getRatingByYear method.
+	 * Checks if movies returned in correct order based on year "1994".
+	 */
 	@Test
-	public void testGetRatingByYear() {
+	public void testGetRatingsByYear() {
 		List<MovieRating> ratingList = new ArrayList<MovieRating>();
 		try {
 			ratingList = movieDAO.getRatingsByYear(1994, 10, 50);
 			assertEquals("The Shawshank Redemption",ratingList.get(0).getTitle());
+			assertEquals("Forrest Gump", ratingList.get(1).getTitle());
 		} catch (SQLException e) {
 			fail("SQLException thrown");
 			e.printStackTrace();
 		}
 	}
 	
+	/**
+	 * Tests getRatinsgByYear method if invalid.
+	 * Checks if list is empty if an invalid year is passed as a parameter.
+	 */
 	@Test
-	public void testGetRatingByYearInvalid() {
+	public void testGetRatingsByYearInvalid() {
 		List<MovieRating> ratingList = new ArrayList<MovieRating>();
 		boolean isValid = true;
 		try {
@@ -169,6 +181,37 @@ class MovieDAOTest {
 				isValid = false;
 			}
 			assertEquals(false,isValid);
+		} catch (SQLException e) {
+			fail("SQLException thrown");
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Tests getRatingsByYear method if limit is correct.
+	 * Checks if the size of the list matches that passed in parameter.
+	 */
+	@Test
+	public void testGetRatingsByYearLimit() {
+		try {
+			List<MovieRating> movieRating = movieDAO.getRatingsByYear(1994, 1, 50);
+			assertEquals(1,movieRating.size());
+			assertEquals("The Shawshank Redemption",movieRating.get(0).getTitle());
+		} catch (SQLException e) {
+			fail("SQLException thrown");
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Tests getRatingsByYear method if votes are correct.
+	 * Checks if movie returned matches the result when over 2300000 votes.
+	 */
+	@Test
+	public void testGetRatingsByYearVotes() {
+		try {
+			List<MovieRating> movieRating = movieDAO.getRatingsByYear(1994, 1, 2300000);
+			assertEquals("Forrest Gump", movieRating.get(0).getTitle());
 		} catch (SQLException e) {
 			fail("SQLException thrown");
 			e.printStackTrace();

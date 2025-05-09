@@ -8,14 +8,6 @@ import com.flickfinder.dao.PersonDAO;
 import io.javalin.Javalin;
 import io.javalin.http.staticfiles.Location;
 
-/**
- * This class is used to configure the Javalin web server.
- * It sets up the routes and the static files location.
- * As you implement the remaining functionality, you will need to update this
- * class.
- * 
- */
-
 public class AppConfig {
 
 	/**
@@ -40,15 +32,6 @@ public class AppConfig {
 		PersonDAO personDao = new PersonDAO();
 		PersonController personController = new PersonController(personDao);
 
-		/**
-		 * Below are the routes for the application.
-		 * You will need uncomment these as you progress through the assessment.
-		 * Do not:
-		 * - change the strings and methods passed to the get() method.
-		 * - change the order of the routes. Order matters in Javalin, as the routes are
-		 * pattern matched in the order they are defined.
-		 * Only uncomment the routes for the functionality you have implemented.
-		 */
 		app.get("/movies/ratings/{year}", movieController::getRatingsByYear);
 		app.get("/movies", movieController::getAllMovies);
 		app.get("/movies/{id}", movieController::getMovieById);

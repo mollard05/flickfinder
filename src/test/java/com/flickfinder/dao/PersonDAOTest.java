@@ -16,9 +16,6 @@ import com.flickfinder.model.Person;
 import com.flickfinder.util.Database;
 import com.flickfinder.util.Seeder;
 
-/**
- * TODO: Implement this class
- */
 class PersonDAOTest {
 	
 	private PersonDAO personDAO;

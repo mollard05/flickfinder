@@ -12,19 +12,8 @@ import com.flickfinder.model.Movie;
 import com.flickfinder.model.Person;
 import com.flickfinder.util.Database;
 
-/**
- * TODO: Implement this class
- * 
- */
 public class PersonDAO {
 
-	// for the must have requirements, you will need to implement the following
-	// methods:
-	// - getAllPeople()
-	// - getPersonById(int id)
-	// you will add further methods for the more advanced tasks; however, ensure your have completed 
-	// the must have requirements before you start these.  
-	
 	private final Connection connection;
 	
 	public PersonDAO() {
@@ -32,6 +21,12 @@ public class PersonDAO {
 		connection = database.getConnection();
 	}
 	
+	/**
+	 * Returns a list of all people in the database.
+	 * 
+	 * @return a list of all people in the database
+	 * @throws SQLException if a database error occurs
+	 */
 	public List<Person> getAllPeople(int limit) throws SQLException {
 		List<Person> people = new ArrayList<>();
 		
@@ -47,6 +42,13 @@ public class PersonDAO {
 		return people;
 	}
 	
+	/**
+	 * Returns the person with the specified id.
+	 * 
+	 * @param id the id of the person
+	 * @return the person with the specified id
+	 * @throws SQLException if a database error occurs
+	 */
 	public Person getPersonById(int id) throws SQLException {
 
 		String statement = "select * from people where id = ?";
@@ -63,6 +65,13 @@ public class PersonDAO {
 
 	}
 	
+	/**
+	 * Returns list of movies from specified person id.
+	 * 
+	 * @param personId id of the person
+	 * @return list of movies based on person id
+	 * @throws SQLException if database error occurs
+	 */
 	public List<Movie> getMoviesStarringPerson(int personId) throws SQLException {
 		List<Movie> movies = new ArrayList<Movie>();
 		

@@ -51,7 +51,7 @@ class PersonControllerTest {
 	 * @throws SQLException
 	 */
 	@Test
-	void testGetAllDatabaseError() throws SQLException {
+	void testThrows500ExceptionWhenGetAllDatabaseError() throws SQLException {
 		when(personDAO.getAllPeople(50)).thenThrow(new SQLException());
 		personController.getAllPeople(ctx);
 		verify(ctx).status(500);
@@ -76,7 +76,7 @@ class PersonControllerTest {
 	 * @throws SQLException
 	 */
 	@Test
-	void testGetPersonById500DatabaseError() throws SQLException {
+	void testThrows500ExceptionWhenGetByIdDatabaseError() throws SQLException {
 		when(ctx.pathParam("id")).thenReturn("1");
 		when(personDAO.getPersonById(1)).thenThrow(new SQLException());
 		personController.getPersonById(ctx);
@@ -88,7 +88,7 @@ class PersonControllerTest {
 	 * @throws SQLException
 	 */
 	@Test
-	void test404ExceptionWhenNoPersonFound() throws SQLException {
+	void testThrows404ExceptionWhenNoPersonFound() throws SQLException {
 		when(ctx.pathParam("id")).thenReturn("1");
 		when(personDAO.getPersonById(1)).thenReturn(null);
 		personController.getPersonById(ctx);
