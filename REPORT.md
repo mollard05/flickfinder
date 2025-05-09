@@ -81,4 +81,6 @@ If I were to build upon the code in the future, I would like to implement more f
 
 ## 3. References
 
+(References from the implementation part can be found where used in the code.)
+
 [use a know referencing style, for example APA, Harvard, etc.]
