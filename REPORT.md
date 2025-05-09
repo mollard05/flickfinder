@@ -1,12 +1,5 @@
 # COM1008 - Software Engineering
 
-
-[Lines in square brackets are placeholders or instructions; you should replace them with the appropriate information. Please ensure no placeholder text is left in the final version (including this line, and the Lines below).]
-
-[As this is a markdown file, you should edit it in a IDE or text editor that supports markdown - don't use Microsoft Word or other word processors. For more information on markdown, see: https://www.markdownguide.org/]
-
-[** Before you submit, preview the rendered version of the file to ensure it is formatted correctly. Gitlab will render the markdown file as HTML, so please check the output is correct. Also, you can use an IDE or text editor that supports markdown to preview the file (e.g., VSCode). ** ] 
-
 # Assignment 1 - Report
 
 **Student Name: Molly Sheppard**
@@ -19,13 +12,13 @@
 
  ** Shannon Borgle **
 
-Shannon, age 42, is a receptionist at her local hospice in Liverpool, working 4.5hrs every weekday. She still lives with her parents and has remained single since she dropped out of school at 14 to try to pursue a hair and makeup business. She prefers gossiping with her colleagues than assisting the general public and is always in trouble with her boss. Her gossip often revolves around her obsessive love for Leonardo DiCaprio where she uses FlickFinder to explore more of his movies to aid her obsession. 
+Shannon, age 42, is a receptionist at her local hospice in Liverpool, working 4.5hrs every weekday. She still lives with her parents and dropped out of school at 16 to try to pursue a hair and makeup business. She prefers gossiping with her colleagues than assisting the general public and is fairly unfamiliar with using technology. Her gossip often revolves around her obsessive love for the actor, Leonardo DiCaprio, where she uses FlickFinder to explore more of his movies to aid her obsession. 
 
 ### Persona 2
 
 ** James Sharpe **
 
-James, age 28, is a instagram content-creator from Hackney, London. Growing up, both his parents worked full time jobs at The Royal London Hospital which left James alone often after school to watch various movies. After studying journalism at the University of Southampton, he moved back to Hackney to pursue a self-employed social media career sharing his love for film. He often uses FlickFinder to find information about the movies he plans to watch to be able to share them with his followers. 
+James, age 28, is a instagram content-creator from Hackney, London. Growing up, both his parents worked full time jobs at The Royal London Hospital which left James often alone after school to watch movies. After studying "Film and Media Studies" at the University of Southampton, he moved back to Hackney to pursue a self-employed social media career sharing his love for film. He often uses FlickFinder to find information about the movies he plans to watch to be able to share reviews and recommendations with his followers. 
 
 ## 1.2 Scenario
 
@@ -33,9 +26,9 @@ James, age 28, is a instagram content-creator from Hackney, London. Growing up, 
 
 Shannon is a hospice receptionist in Liverpool. Whilst she only works part time, she often slacks off from her work by prioritising her interests in hair and makeup and her obsession with the actor Leonardo DiCaprio. 
 
-She needs a useful site that can allow her to list all movies by a specific actor so that she can go through the list and watch all of DiCaprio's movies. As Shannon finds technology a little difficult to use, her family recommended her to use FlickFinder as it has a simplistic graphic for her to understand and a "search movies by star" feature where she could find a long list of movies starring Leonardo DiCaprio (id 138).
+She needs a useful site that can allow her to list all movies by a specific actor so that she can go through the list and watch all of DiCaprio's movies. As Shannon finds technology a little difficult to use, her family recommended her to use FlickFinder as it has a simplistic graphic that is easy to navigate. She logs into the site and can use the "search movies by star" feature, which is clearly outlined by a bold illustration of a person to symbolise actors, to find a long list of movies starring Leonardo DiCaprio (id 138) to work through in her free time. This includes the basic information on the movie such as the release date so as to not overwhelm the user.
 
-She uses these features, along with the view by ratings feature, to provide a list of top-rated Leonardo Dicaprio movies to work through in her free time. However, she would like a way to track her movies that she has watched already as well as a recommendation for her next movies to watch to further improve her experience with the site.
+However, to further improve her experience with the site, she would like a way to track her movies that she has watched already as well as receive a recommendation for her next movie to watch without having to search through the whole system again. This can be implemented by recommending movies with similar genres or actors which are shown on the homepage for easy access.
 
 ## 1.3 User Stories
 
@@ -43,43 +36,44 @@ She uses these features, along with the view by ratings feature, to provide a li
 
 ** Film Critic reviewing popular movies**
 
-As a film critic, I need to search for all movies on the IMDB database with a high rating to decide what to review. 
+As a guest user of the FlickFinder system, I need to search for all movies on the IMDB database with a high rating to decide what to review. 
 
 ### User Story 2
 
-** User wants to find details of a specific movie**
+** User wants to track movies**
 
-As a user, I want to find the year of release of a movie by its id so I can win a film trivia quiz.
+As a logged-in user, I want to be able to create an account that can log movies that I have watched so that I can keep track of movies to watch.
 
 ### User Story 3
 
 ** Casting director finding actors **
 
-As a casting director, I need to search for actors and actresses in a large database to find promising stars for my new movie.
+As a guest user, I need to search for actors and actresses by their popularity rating in order to find promising stars for my new movie.
 
 ### User Story 4
 
-** Film Blogger wants to only find the top movies**
+** Film Blogger wants to only find the top movies of each genre**
 
-As a film blogger, I want to limit the database and find only the top 5 movies from each year for my new blog post.
+As a guest user, I want to find the most highly rated movies of each specific genre to add to my new blog post.
 
 ### User Story 5
 
 ** Local Cinema wants to print out cast list**
 
-As the owner of a local cinema business, I want to view a list of all the actors and actresses from a movie to create a custom brochure.
+As a guest user, I want to view a list of all the actors and actresses from a movie to create a custom brochure.
 
 ### User Story 6
 
 ** Fan account needs to compile a list of films for new fans**
 
-As an owner of a social media fan account, I need to find a list of movies starring a specific actor so that I can share with new fans.
+As a guest user, I need to find a list of movies starring a specific actor so that I can share with new fans.
 
 ## 2 Critical Analysis and Reflection
 
 ### 2.1 Reflection
 
-[Insert a brief reflection succinctly covering what went well in this project and what could be improved.]
+In this project, it has gone reasonably well for implemented and furthering my understanding of software development. I now feel confident in creating SQL statements in the DAO and creating a corresponding test class to make sure my program functions and receives information from the connected database correctly. I also understand the purpose of the controllers to connect the routes to the DAO and SQL statements, as well as the suitable test classes for error handling and validation. The integration tests took longer to understand that I had expected as there was often various Hamcrest matchers that could be used that I had less knowledge on. Nevertheless, I feel that the coursework has certainly developed my understanding of using various software dependencies such as javalin and mockito.
+If I were to build upon the code in the future, I would like to implement more features such as a "genre" list or a log-in page. I would also like further practice on creating and implementing personas/scenarios/user stories.
 
 ### 2.2 Professional Aspects
 
