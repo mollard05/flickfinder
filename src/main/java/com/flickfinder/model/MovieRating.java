@@ -1,6 +1,8 @@
 package com.flickfinder.model;
 
-
+/**
+ * Represents a movieRating with its id, title, rating, votes and year of release.
+ */
 public class MovieRating extends Movie{
 	private int id;
 	private String title;
