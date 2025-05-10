@@ -46,7 +46,7 @@ As a logged-in user, I want to be able to create an account that can log movies 
 
 ### User Story 3
 
-**Casting director finding actors **
+**Casting director finding actors**
 
 As a guest user, I need to search for actors and actresses by their popularity rating in order to find promising stars for my new movie.
 
