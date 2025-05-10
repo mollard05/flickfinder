@@ -10,19 +10,19 @@
 
 ### Persona 1
 
- ** Shannon Borgle **
+ **Shannon Borgle**
 
 Shannon, age 42, is a receptionist at her local hospice in Liverpool, working 4.5hrs every weekday. She still lives with her parents and dropped out of school at 16 to try to pursue a hair and makeup business. She prefers gossiping with her colleagues than assisting the general public and is fairly unfamiliar with using technology. Her gossip often revolves around her obsessive love for the actor, Leonardo DiCaprio, where she uses FlickFinder to explore more of his movies to aid her obsession. 
 
 ### Persona 2
 
-** James Sharpe **
+**James Sharpe**
 
 James, age 28, is a instagram content-creator from Hackney, London. Growing up, both his parents worked full time jobs at The Royal London Hospital which left James often alone after school to watch movies. After studying "Film and Media Studies" at the University of Southampton, he moved back to Hackney to pursue a self-employed social media career sharing his love for film. He often uses FlickFinder to find information about the movies he plans to watch to be able to share reviews and recommendations with his followers. 
 
 ## 1.2 Scenario
 
-** Helping Shannon watch all of DiCaprio's movies **
+**Helping Shannon watch all of DiCaprio's movies**
 
 Shannon is a hospice receptionist in Liverpool. Whilst she only works part time, she often slacks off from her work by prioritising her interests in hair and makeup and her obsession with the actor Leonardo DiCaprio. 
 
@@ -34,37 +34,37 @@ However, to further improve her experience with the site, she would like a way t
 
 ### User Story 1
 
-** Film Critic reviewing popular movies**
+**Film Critic reviewing popular movies**
 
 As a guest user of the FlickFinder system, I need to search for all movies on the IMDB database with a high rating to decide what to review. 
 
 ### User Story 2
 
-** User wants to track movies**
+**User wants to track movies**
 
 As a logged-in user, I want to be able to create an account that can log movies that I have watched so that I can keep track of movies to watch.
 
 ### User Story 3
 
-** Casting director finding actors **
+**Casting director finding actors **
 
 As a guest user, I need to search for actors and actresses by their popularity rating in order to find promising stars for my new movie.
 
 ### User Story 4
 
-** Film Blogger wants to only find the top movies of each genre**
+**Film Blogger wants to only find the top movies of each genre**
 
 As a guest user, I want to find the most highly rated movies of each specific genre to add to my new blog post.
 
 ### User Story 5
 
-** Local Cinema wants to print out cast list**
+**Local Cinema wants to print out cast list**
 
 As a guest user, I want to view a list of all the actors and actresses from a movie to create a custom brochure.
 
 ### User Story 6
 
-** Fan account needs to compile a list of films for new fans**
+**Fan account needs to compile a list of films for new fans**
 
 As a guest user, I need to find a list of movies starring a specific actor so that I can share with new fans.
 
