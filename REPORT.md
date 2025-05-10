@@ -12,7 +12,7 @@
 
  **Shannon Borgle**
 
-Shannon, age 42, is a receptionist at her local hospice in Liverpool, working 4.5hrs every weekday. She still lives with her parents and dropped out of school at 16 to try to pursue a hair and makeup business. She prefers gossiping with her colleagues than assisting the general public and is fairly unfamiliar with using technology. Her gossip often revolves around her obsessive love for the actor, Leonardo DiCaprio, where she uses FlickFinder to explore more of his movies to aid her obsession. 
+Shannon, age 62, is a receptionist at her local hospice in Liverpool, working 4.5hrs every weekday. She has little further education as she dropped out of school at 16 to try to pursue a hair and makeup business. She prefers gossiping with her colleagues than assisting the general public and is fairly unfamiliar with using technology. Her gossip often revolves around her love for the actor George Clooney, she uses FlickFinder to explore more of his movies to aid her obsession. 
 
 ### Persona 2
 
@@ -24,11 +24,11 @@ James, age 28, is a instagram content-creator from Hackney, London. Growing up, 
 
 **Helping Shannon watch all of DiCaprio's movies**
 
-Shannon is a hospice receptionist in Liverpool. Whilst she only works part time, she often slacks off from her work by prioritising her interests in hair and makeup and her obsession with the actor Leonardo DiCaprio. 
+Shannon is a hospice receptionist in Liverpool. As she only works part time, she often enjoys her other interests in her free time, mainly involving her fascination with the actor George Clooney. She aims to watch all of his movies so that she has more to gossip with her friends whilst at work.
 
-She needs a useful site that can allow her to list all movies by a specific actor so that she can go through the list and watch all of DiCaprio's movies. As Shannon finds technology a little difficult to use, her family recommended her to use FlickFinder as it has a simplistic graphic that is easy to navigate. She logs into the site and can use the "search movies by star" feature, which is clearly outlined by a bold illustration of a person to symbolise actors, to find a long list of movies starring Leonardo DiCaprio (id 138) to work through in her free time. This includes the basic information on the movie such as the release date so as to not overwhelm the user.
+She wants to find a useful site that can allow her to list all movies by a specified actor so that she can go through the list and watch all of Clooney's movies in her spare time. This should include some information about the movies and its ratings to help her choose what to watch next. As Shannon finds technology a little difficult to use, she wants a site that is easy to understand with more simple features and interfaces. Her family recommends her to use FlickFinder as it has both a user-friendly graphic that is easy to navigate and a range of simple features for searching for movies. She uses the site's "search movies by star" feature, which is clearly outlined in the interface using a simplistic illustration to symbolise actors, to find a long list of movies starring George Clooney (id 123) that she can work through in her free time. This list includes basic information on the movie, such as the release date, so as to not overwhelm the user - which Sharron quite likes.
 
-However, to further improve her experience with the site, she would like a way to track her movies that she has watched already as well as receive a recommendation for her next movie to watch without having to search through the whole system again. This can be implemented by recommending movies with similar genres or actors which are shown on the homepage for easy access.
+To further improve her experience with the site, she would prefer a way to track the movies that she has already watched as well as receive a recommendations for other movies without having to search through the whole system again. This could be implemented by creating a log-in system which can store details such as "films watched" in order to recommended movies based on similar actors or genres and can be displayed on the homepage for easy access.
 
 ## 1.3 User Stories
 
