@@ -72,15 +72,22 @@ As a guest user, I need to find a list of movies starring a specific actor so th
 
 ### 2.1 Reflection
 
-In this project, it has gone reasonably well for implemented and furthering my understanding of software development. I now feel confident in creating SQL statements in the DAO and creating a corresponding test class to make sure my program functions and receives information from the connected database correctly. I also understand the purpose of the controllers to connect the routes to the DAO and SQL statements, as well as the suitable test classes for error handling and validation. The integration tests took longer to understand that I had expected as there was often various Hamcrest matchers that could be used that I had less knowledge on. Nevertheless, I feel that the coursework has certainly developed my understanding of using various software dependencies such as javalin, mockito and junit.
-If I were to build upon the code in the future, I would like to implement more features such as a "genre" list or a log-in page. I would also like further practice on creating and implementing personas/scenarios/user stories.
+In this project, it has gone reasonably well for furthering my understanding of software development. I found the implementation went particularly well as I built upon labs from this module as well as my knowledge of java from previous modules. I now feel more confident in creating SQL statements in the DAO and corresponding test classes to make sure my program functions and receives information from the connected database correctly. I also better understand the purpose of the controllers to connect the routes to the DAO and SQL statements, as well as the suitable test classes for error handling and validation. The integration tests took longer to understand than I had expected as there were often various Hamcrest matchers that could be used which I had less knowledge on. Nevertheless, I feel that the coursework has certainly developed my understanding of using various software dependencies such as javalin, mockito and junit which I could use in my own project.
+If I were to build upon the code in the future, I would like to implement more features such as a "genre" list or a log-in page to better understand creating a new route. I would also like further practice creating and implementing personas/scenarios/user stories to better understand how they would be used in industry.
 
 ### 2.2 Professional Aspects
 
-[Insert information about professional aspects of software engineering related to the project.]
+Between 2015 to 2024, Internet users have increased by 86% (1), this ever-growing number is likely to further increase in the future which would mean that the FlickFinder site should have to have multiple  plans for maintenance and sustainability factors. Common software design patterns such as classes or objects in object-oriented code are used in the program to keep the code efficient and scalable (such as the limit function) for better maintenance over a long period and more data. Also, as AI grows in efficiency and use, it may be useful to implement AI features to keep up with competing film sites.
+Keeping movie data up to date will require the use of data from the IMDB API which is stored using the AWS cloud (2), this service is one of the most eco-friendly cloud services that became 100% renewable in 2023 (3). Implementing new features such as a logging in to an account would also require the create a Client-Server architecture to keep account data, the sustainability effects increasing hardware would have would need to be accounted for. It must also be made sure that account details do not break any General Data Protection Regulation and used fairly, lawfully and transparently (4). 
 
 ## 3. References
 
 (References from the implementation part can be found where used in the code.)
 
-[use a know referencing style, for example APA, Harvard, etc.]
+(1) - ITU. (2024). Number of internet users worldwide from 2005 to 2024 (in millions). Statista. Statista Inc.Available at: https://www.statista.com/statistics/273018/number-of-internet-users-worldwide/ (Accessed: 10/05/2025)
+
+(2) - IMDB. (2025) Introducing the IMDB API. Available at: https://help.imdb.com/article/imdb/general-information/introducing-the-imdb-api/G49M5Y59L5N4WABM?ref_=helpart_nav_44# (Accessed: 10/05/2025)
+
+(3) - Amazon. (2025) AWS Cloud Progress. Available at: https://sustainability.aboutamazon.com/products-services/aws-cloud (Accessed: 10/05/2025)
+
+(4) - UK Government (2025) Data Protection. Available at: https://www.gov.uk/data-protection (Accessed: 10/05/2025)
