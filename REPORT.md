@@ -77,8 +77,8 @@ If I were to build upon the code in the future, I would like to implement more f
 
 ### 2.2 Professional Aspects
 
-Between 2015 to 2024, Internet users have increased by 86% (1), this ever-growing number is likely to further increase in the future which would mean that the FlickFinder site should have to have multiple  plans for maintenance and sustainability factors. Common software design patterns such as classes or objects in object-oriented code are used in the program to keep the code efficient and scalable (such as the limit function) for better maintenance over a long period and more data. Also, as AI grows in efficiency and use, it may be useful to implement AI features to keep up with competing film sites.
-Keeping movie data up to date will require the use of data from the IMDB API which is stored using the AWS cloud (2), this service is one of the most eco-friendly cloud services that became 100% renewable in 2023 (3). Implementing new features such as a logging in to an account would also require the create a Client-Server architecture to keep account data, the sustainability effects increasing hardware would have would need to be accounted for. It must also be made sure that account details do not break any General Data Protection Regulation and used fairly, lawfully and transparently (4). 
+Between 2015 to 2024, Internet users have increased by 86% (1), this growing number requires the FlickFinder site to have plans for long-term maintenance and sustainability factors. Common software design patterns such as classes or objects used in object-oriented code are integrated to keep code efficient and easily scalable (such as the limit function). As AI grows in price and efficiency (2), it may be useful to implement AI features to keep up with competing film sites. To keep movie data up to date, the IMDB API can be used. The IMDB API's use of the AWS Cloud (3), which became 100% renewable in 2023 (4), would provide a sustainable source for keeping information easily accessible for users.
+Implementing new features (such as a logging in to an account) could require creating a Client-Server architecture to keep account data away from direct contact with the client. Whilst being more secure, it may negatively impact sustainability efforts due to increasing hardware and CO2 emissions. Cloud storage similar to the AWS could potentially improve this. It must also be made sure that any account storage does not break any General Data Protection Regulation laws and is used fairly, lawfully and transparently (5) - such as ensuring the passwords are encrypted and securely stored from hackers. 
 
 ## 3. References
 
@@ -86,8 +86,10 @@ Keeping movie data up to date will require the use of data from the IMDB API whi
 
 (1) - ITU. (2024). Number of internet users worldwide from 2005 to 2024 (in millions). Statista. Statista Inc.Available at: https://www.statista.com/statistics/273018/number-of-internet-users-worldwide/ (Accessed: 10/05/2025)
 
-(2) - IMDB. (2025) Introducing the IMDB API. Available at: https://help.imdb.com/article/imdb/general-information/introducing-the-imdb-api/G49M5Y59L5N4WABM?ref_=helpart_nav_44# (Accessed: 10/05/2025)
+(2) - Newman A. & Winks O. (2025) 'Sustainability and Professional Aspects' - slide 13 [Powerpoint Presentation]
 
-(3) - Amazon. (2025) AWS Cloud Progress. Available at: https://sustainability.aboutamazon.com/products-services/aws-cloud (Accessed: 10/05/2025)
+(3) - IMDB. (2025) Introducing the IMDB API. Available at: https://help.imdb.com/article/imdb/general-information/introducing-the-imdb-api/G49M5Y59L5N4WABM?ref_=helpart_nav_44# (Accessed: 10/05/2025)
 
-(4) - UK Government (2025) Data Protection. Available at: https://www.gov.uk/data-protection (Accessed: 10/05/2025)
+(4) - Amazon. (2025) AWS Cloud Progress. Available at: https://sustainability.aboutamazon.com/products-services/aws-cloud (Accessed: 10/05/2025)
+
+(5) - UK Government (2025) Data Protection. Available at: https://www.gov.uk/data-protection (Accessed: 10/05/2025)
