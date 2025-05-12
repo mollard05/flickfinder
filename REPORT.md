@@ -22,7 +22,7 @@ James, age 28, is a instagram content-creator from Hackney, London. Growing up, 
 
 ## 1.2 Scenario
 
-**Helping Shannon watch all of DiCaprio's movies**
+**Helping Shannon watch all of Clooney's movies**
 
 Shannon is a hospice receptionist in Liverpool. As she only works part time, she often enjoys her other interests in her free time, mainly involving her fascination with the actor George Clooney. She aims to watch all of his movies so that she has more to gossip with her friends whilst at work.
 
