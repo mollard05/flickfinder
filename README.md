@@ -1,10 +1,6 @@
-## COM1028 Software Engineering - FlickFinder
+## Software Engineering Project - FlickFinder
 
-This is the starting project for the COM1028 Software Engineering module. This project is a simple application that provides a RESTful API for accessing a movie database. The database is a simple SQLite database that contains information about movies, people, and their relationships.
-
-The badge below indicates if your submission compiled correctly. It may take some time to update. You can click the badge to see the jobs page and failure traces. You must ensure your project compiles correctly.
-
-[![Pipeline status](https://gitlab.surrey.ac.uk/csee/com1028/2024-25/com1028ms04317/badges/main/pipeline.svg)](https://gitlab.surrey.ac.uk/csee/com1028/2024-25/com1028ms04317/-/jobs/)
+As part of the COM1028 Software Engineering module. This project is a simple application that provides a RESTful API for accessing a movie database. The database is a simple SQLite database that contains information about movies, people, and their relationships.
 
 ## Dependencies
 
