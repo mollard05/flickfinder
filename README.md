@@ -1,6 +1,5 @@
 ## Software Engineering Project - FlickFinder
-
-As part of the COM1028 Software Engineering module. This project is a simple application that provides a RESTful API for accessing a movie database. The database is a simple SQLite database that contains information about movies, people, and their relationships.
+As part of the COM1028 Software Engineering module. This project is a simple application that provides a RESTful API for accessing the imdb movie database. The database is a simple SQLite database that contains information about movies, people, and their relationships.
 
 ## Dependencies
 
